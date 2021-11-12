@@ -10,22 +10,28 @@
     })
 
     const count = ref(0)
+
     let state = reactive({
         message: 'empty',
         book: []
     })
 
+    let books = ref([])
 
-    fetch('http://localhost:5106/test') // returning 404
+    let testAPI = fetch('http://localhost:5106/test') // returning 404
         .then((res) => {
-            console.log(res.url)
+            console.log('From Book.vue',res)
             return res.text()
         })
         .then(t => state.message = t)
 
-    axios.get('http://localhost:5106/api/books')
-        .then(res => res.data)
-        .then(b => state.book = b)
+   let getBooks =  axios.get('http://localhost:5106/api/books')
+       .then((resposne) => {
+            console.log('From Book.vue', resposne.data)
+            books.value = resposne.data
+           return resposne.data
+        })
+    /*   .then(b => book.value = b)*/
 
     /* console.log(get)*/
 </script>
@@ -36,7 +42,7 @@
 
     <SearchBook />
     <ul>
-        <li v-for="book in state.book"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
+        <li v-for="book in books"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
     </ul>
 
 
