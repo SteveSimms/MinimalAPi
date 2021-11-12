@@ -3,6 +3,8 @@
     import { reactive } from 'vue'
     import axios from 'axios'
 
+    import SearchBook from './SearchBook.vue'
+
     defineProps({
         msg: String
     })
@@ -31,8 +33,10 @@
 <template>
     <h1>{{ msg }}</h1>
     <h1>{{ state.message }}</h1>
+
+    <SearchBook />
     <ul>
-        <li v-for="book in state.book"> {{ book.title }} By {{ book.author }} <br/>{{ book.description }}  </li>
+        <li v-for="book in state.book"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
     </ul>
 
 

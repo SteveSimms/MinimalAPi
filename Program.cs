@@ -17,22 +17,25 @@ var test = app.MapGet("/test", () => "Salam Sidi Asim");
 
 //Adding below code is blocking the data from reaching the client somehow 
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSpa(builder =>
-    {
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSpa(builder =>
+//    {
 
-        builder.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
-
-
-
-
-    });
-
-}
+//        builder.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
 
 
 
+
+//    });
+
+//}
+
+
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapDefaultControllerRoute();
+//});
 //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 //------------------------------------------------
