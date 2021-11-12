@@ -10,15 +10,29 @@ builder.Services.AddDbContext<BookContext>(options => options.UseNpgsql(builder.
 var app = builder.Build();
 //MapGet uses endpoints
 app.MapGet("/", () => "Hello Multiverse!");
-var test = app.MapGet("/api/test", () => "Salam Sidi Asim");
-//Adding below code is blocking the data from reaching the client somehow 
-app.UseSpa(b =>
-{
+var test = app.MapGet("/test", () => "Salam Sidi Asim");
 
-        b.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
- 
-   
-} );
+
+
+
+//Adding below code is blocking the data from reaching the client somehow 
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSpa(builder =>
+    {
+
+        builder.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
+
+
+
+
+    });
+
+}
+
+
+
 //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 //------------------------------------------------
