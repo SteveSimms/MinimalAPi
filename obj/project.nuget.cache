@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R2/koKnMPWzVhE1dk6RsFd0+d+BpUn/g28xoPVi5DG7GYH0sFWLPON5/FC/iuckEi5+qztfjrTYha2oHVmSJjQ==",
+  "dgSpecHash": "N9Ts0dYkpmsXjeSCGNrNSRgJeBiL8TBPlr/zWGx3t9JP+zBGlwLMQxN01ybfTeTaq2pAl48UyrynC+UgMPWjyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simms\\source\\repos\\MinimalAPi\\MinimalAPi.csproj",
+  "projectFilePath": "C:\\Users\\simms\\source\\repos\\MinimalApi\\MinimalAPi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simms\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
