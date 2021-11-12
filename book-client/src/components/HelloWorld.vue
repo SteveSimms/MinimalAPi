@@ -12,15 +12,16 @@
         message: 'empty'
     })
 
-    axios.get('http://localhost:5106/test')
-        .then(res => res.data)
-            .then(t => state.message = t)
+  const get = axios.get('http://localhost:5106/api/test')
+        .then(res => res)
+       .then(t => state.message = t)
+
+ console.log(get)
 </script>
 
 <template>
     <h1>{{ msg }}</h1> 
     <h1>{{ state.message }}</h1>
-  
 
     <p>
         Recommended IDE setup:

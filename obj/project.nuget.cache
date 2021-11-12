@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "N9Ts0dYkpmsXjeSCGNrNSRgJeBiL8TBPlr/zWGx3t9JP+zBGlwLMQxN01ybfTeTaq2pAl48UyrynC+UgMPWjyw==",
+  "dgSpecHash": "hkJNKkJGUUfYf0wUIhxH3P9Kn9WLf/OiIcxIgFfzuqWzy+LAybMellAbaOWbr1zdytEgSto+wB/49lZlqL2RwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\simms\\source\\repos\\MinimalApi\\MinimalAPi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simms\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\simms\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\6.0.0\\microsoft.aspnetcore.spaservices.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
@@ -15,6 +16,9 @@
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\6.0.0\\microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
+    "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0\\microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",

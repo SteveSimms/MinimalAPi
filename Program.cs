@@ -3,15 +3,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.AspNetCore.Mvc;
 
+
 var builder = WebApplication.CreateBuilder(args);
 // establishing DbContext through builder method
 builder.Services.AddDbContext<BookContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BookDb")));
 var app = builder.Build();
 //MapGet uses endpoints
 app.MapGet("/", () => "Hello Multiverse!");
-var test = app.MapGet("/test", () => "Salam Sidi Asim");
+var test = app.MapGet("/api/test", () => "Salam Sidi Asim");
+//Adding below code is blocking the data from reaching the client somehow 
+app.UseSpa(b =>
+{
 
-
+        b.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
+ 
+   
+} );
+//app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 //------------------------------------------------
 //CRUD OPS BELOW
