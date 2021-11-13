@@ -3,7 +3,7 @@
     import { reactive } from 'vue'
     import axios from 'axios'
 
-    import SearchBook from './SearchBook.vue'
+    /* import SearchBook from './SearchBook.vue'*/
 
     defineProps({
         msg: String
@@ -12,25 +12,35 @@
     const count = ref(0)
 
     let state = reactive({
-        message: 'empty',
-        book: []
+        message: 'empty'
+
     })
 
     let books = ref([])
+    let searchInput = ref('')
 
     let testAPI = fetch('http://localhost:5106/test') // returning 404
         .then((res) => {
-            console.log('From Book.vue',res)
+            /*  console.log('From Book.vue', res)*/
             return res.text()
         })
         .then(t => state.message = t)
 
-   let getBooks =  axios.get('http://localhost:5106/api/books')
-       .then((resposne) => {
-            console.log('From Book.vue', resposne.data)
-            books.value = resposne.data
-           return resposne.data
-        })
+    let getBooks = async () => {
+        await axios.get('http://localhost:5106/api/books')
+            .then((resposne) => {
+                books.value = resposne.data
+                console.log('From Book.vue', resposne.data)
+                return resposne.data
+            })
+    }
+    getBooks()
+
+    let searchBooks = () => {
+        searchInput.value
+        console.log(searchInput.value)
+        searchInput.value = ''
+    }
     /*   .then(b => book.value = b)*/
 
     /* console.log(get)*/
@@ -40,7 +50,12 @@
     <h1>{{ msg }}</h1>
     <h1>{{ state.message }}</h1>
 
-    <SearchBook />
+    <form @submit.prevent="searchBooks" action="/" method="post">
+        <label>Search for Books </label>
+        <input v-model="searchInput" type="text" />
+
+    </form>
+
     <ul>
         <li v-for="book in books"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
     </ul>

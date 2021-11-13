@@ -15,9 +15,9 @@
 </script>
 
 <template>
-    <h1> {{ props.books }}  </h1> 
+    <!--<h1> {{ books }}  </h1>--> 
 
-    <input type="text" value="Search Books"/>
+    <!--<input type="text" value="Search Books"/>-->
 
 
 </template>
