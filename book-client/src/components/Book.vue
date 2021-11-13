@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, computed } from 'vue'
     import { reactive } from 'vue'
     import axios from 'axios'
 
@@ -41,6 +41,16 @@
         console.log(searchInput.value)
         searchInput.value = ''
     }
+
+    let filterBooks =  computed(  () => {
+        console.log('From filterBooks', books.value)
+         return  books.value.filter((book) => {
+            let filteredBooks = book.title.toLowerCase()
+                .includes(searchInput.value.toLowerCase())
+
+            return filteredBooks
+        })
+    })
     /*   .then(b => book.value = b)*/
 
     /* console.log(get)*/
@@ -57,7 +67,7 @@
     </form>
 
     <ul>
-        <li v-for="book in books"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
+        <li v-for="book in filterBooks"> {{ book.title }} By {{ book.author }} <br />{{ book.description }}  </li>
     </ul>
 
 
