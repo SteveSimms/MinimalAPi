@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hkJNKkJGUUfYf0wUIhxH3P9Kn9WLf/OiIcxIgFfzuqWzy+LAybMellAbaOWbr1zdytEgSto+wB/49lZlqL2RwA==",
+  "dgSpecHash": "gBQ4sor+geWVWwBwM68AWk2EzpCkNew/tWuDcTXr4KJdCPZr21BSb0pvG0po66oK/6etGS3MR7rbDIT67e/7Gw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simms\\source\\repos\\MinimalApi\\MinimalAPi.csproj",
+  "projectFilePath": "C:\\Users\\simms\\source\\repos\\MinimalAPi\\MinimalAPi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simms\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\simms\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\6.0.0\\microsoft.aspnetcore.spaservices.extensions.6.0.0.nupkg.sha512",

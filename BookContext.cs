@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MinimalAPi
 {
     public class BookContext : DbContext
     {
-        public BookContext(DbContextOptions<BookContext> options):base(options)
+        public BookContext(DbContextOptions<BookContext> options) : base(options)
         {
 
         }
@@ -17,6 +19,14 @@ namespace MinimalAPi
         public string Title { get; set; } = string.Empty;
 
         public string Author { get; set; } = string.Empty;
-        public string  Description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+
+        [NotMapped]
+        [Display(Name = "Image")]
+        [DataType(DataType.Upload)]
+        public IFormFile? ImageFile { get; set; }
+
+        public byte[]? ImageData { get; set; }
+        public string? ImageType { get; set; }
     }
 }

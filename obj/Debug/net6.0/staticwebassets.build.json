@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OYSfuRYx9xGo/0Q90xtzLvvWi0vSf66UMiMSjb7baF4=",
+  "Hash": "tcl79G3u1scRxQA8TTF0HjUYoVucwvFrWE0zNVdDQ/8=",
   "Source": "MinimalAPi",
   "BasePath": "_content/MinimalAPi",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "MinimalAPi\\wwwroot",
       "Source": "MinimalAPi",
-      "ContentRoot": "C:\\Users\\simms\\source\\repos\\MinimalApi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\simms\\source\\repos\\MinimalAPi\\wwwroot\\",
       "BasePath": "_content/MinimalAPi",
       "Pattern": "**"
     }
