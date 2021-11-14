@@ -79,4 +79,7 @@
     a {
         color: #42b983;
     }
+    li {
+        list-style-type: none;
+    }
 </style>

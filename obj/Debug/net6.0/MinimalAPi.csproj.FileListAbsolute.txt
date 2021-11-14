@@ -31,3 +31,4 @@ C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\Microsoft.EntityFramewor
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\book-client\package-lock.json
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\book-client\package.json
 C:\Users\simms\source\repos\MinimalApi\bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\MinimalAPi.staticwebassets.runtime.json
