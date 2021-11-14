@@ -47,8 +47,14 @@ var getAllBooks = app.MapGet("/api/books", async (BookContext db) => await db.Bo
 var getBookById = app.MapGet("api/books/{id}", async (BookContext db, int id) => await db.Books.FindAsync(id));
 
 //Create/POST
-var postBook = app.MapPost("/api/books", async (BookContext db, Book book) =>
+var postBook = app.MapPost("/api/books", async (BookContext db, Book book, IImageService imageservice) =>
 {
+
+    if (book.ImageFile != null)
+    {
+        book.ImageData = await imageservice.ConvertFileToByteArrayAsync(book.ImageFile);
+        book.ImageType = book.ImageFile.ContentType;
+    }
     await db.Books.AddAsync(book);
     await db.SaveChangesAsync();
     Results.Accepted();
@@ -78,8 +84,15 @@ var deleteBookById = app.MapDelete("api/books/{id}", async (BookContext db, int 
 
 });
 
-
 app.Run();
+public interface IImageService
+{
+    public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
+
+    public string ConvertByteArrayToFile(byte[] fileData, string extension);
+}
+
+
 //builder.Services.AddAuthentication();
 
 //builder.Services.AddControllers();
