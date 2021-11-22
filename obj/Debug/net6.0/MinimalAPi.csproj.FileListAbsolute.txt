@@ -30,5 +30,7 @@ C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\Humanizer.dll
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\book-client\package-lock.json
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\book-client\package.json
-C:\Users\simms\source\repos\MinimalApi\bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\MinimalAPi.staticwebassets.runtime.json
+C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\spa.proxy.json
+C:\Users\simms\source\repos\MinimalAPi\bin\Debug\net6.0\Microsoft.AspNetCore.SpaProxy.dll
+C:\Users\simms\source\repos\MinimalAPi\obj\Debug\net6.0\spa.proxy.json

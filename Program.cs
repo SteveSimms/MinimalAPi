@@ -47,18 +47,29 @@ var getAllBooks = app.MapGet("/api/books", async (BookContext db) => await db.Bo
 var getBookById = app.MapGet("api/books/{id}", async (BookContext db, int id) => await db.Books.FindAsync(id));
 
 //Create/POST
-var postBook = app.MapPost("/api/books", async (BookContext db, Book book, IImageService imageservice) =>
+var postBook = app.MapPost("/api/books", async (BookContext db, Book book) =>
 {
-
-    if (book.ImageFile != null)
-    {
-        book.ImageData = await imageservice.ConvertFileToByteArrayAsync(book.ImageFile);
-        book.ImageType = book.ImageFile.ContentType;
-    }
     await db.Books.AddAsync(book);
     await db.SaveChangesAsync();
     Results.Accepted();
 });
+
+
+//POST image 
+//var postBook = app.MapPost("/api/books", async (BookContext db, Book book, IImageService imageservice) =>
+//{
+
+//    if (book.ImageFile != null)
+//    {
+//        book.ImageData = await imageservice.ConvertFileToByteArrayAsync(book.ImageFile);
+//        book.ImageType = book.ImageFile.ContentType;
+//    }
+//    await db.Books.AddAsync(book);
+//    await db.SaveChangesAsync();
+//    Results.Accepted();
+//});
+
+
 
 //Update/Edit
 var updateBook = app.MapPut("api/books/{id}", async (BookContext db, int id, Book book) =>
@@ -84,13 +95,16 @@ var deleteBookById = app.MapDelete("api/books/{id}", async (BookContext db, int 
 
 });
 
+app.UseRouting();
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
 app.Run();
-public interface IImageService
-{
-    public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
+//public interface IImageService
+//{
+//    public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
 
-    public string ConvertByteArrayToFile(byte[] fileData, string extension);
-}
+//    public string ConvertByteArrayToFile(byte[] fileData, string extension);
+//}
 
 
 //builder.Services.AddAuthentication();
