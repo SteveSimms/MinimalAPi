@@ -18,12 +18,12 @@
     const log = console.log
 
     const submitBook = async () => {
-        //await axios.post('http://localhost:5106/api/books')
-        //    .then((resposne) => {
-        //        books.value = resposne.data
-        //        console.log('From AddBook.vue', resposne.data)
-        //        return resposne.data
-        //    })
+        await axios.post('http://localhost:5106/api/books',formInputs.value)
+            .then((resposne) => {
+                formInputs.value = resposne.data
+                console.log('From AddBook.vue', resposne.data)
+                return resposne.data
+            })
         formInputs.value.title
         formInputs.value.author
         formInputs.value.description
@@ -35,7 +35,6 @@
 
 
 <template>
-    <h1>Form goes here</h1>
     <div class="container">
 
         <form @submit.prevent="submitBook" action="/" method="post">
