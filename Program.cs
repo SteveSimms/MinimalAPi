@@ -109,17 +109,5 @@ app.Run();
 
 //builder.Services.AddAuthentication();
 
-//builder.Services.AddControllers();
 
-//app.UseEndpoints(endpoints =>
-//{
-//endpoints.MapDefaultControllerRoute();
-//});
 
-//public class TestController : Controller
-//{
-//    public IActionResult Index()
-//    {
-//        return Ok("Salam Sidi Asim");
-//    }
-//}
