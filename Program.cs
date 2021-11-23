@@ -3,17 +3,31 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.AspNetCore.Mvc;
 
-
+// Establishing A web applicatiom
 var builder = WebApplication.CreateBuilder(args);
+//Configure Services
 // establishing DbContext through builder method
 builder.Services.AddDbContext<BookContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddCors();
+
 var app = builder.Build();
+// Setting CORS POLICY 
+app.UseCors(bldr => bldr
+   .WithOrigins("http://localhost:3000")
+   .AllowAnyHeader()
+   .AllowAnyMethod()
+   .AllowCredentials()
+    );
+//Using Routing and Serving SPA as static File and pointiing to index.html as the static (fall back) file to be served
+app.UseRouting();
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
 //MapGet uses endpoints
 app.MapGet("/", () => "Hello Multiverse!");
 var test = app.MapGet("/test", () => "Salam Sidi Asim");
 
 
-
+//Need to organize config and services need to estab lish cors policy
 
 //Adding below code is blocking the data from reaching the client somehow 
 
@@ -39,7 +53,7 @@ var test = app.MapGet("/test", () => "Salam Sidi Asim");
 //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 //------------------------------------------------
-//CRUD OPS BELOW
+//API (In place of controllers)CRUD OPS BELOW
 //-------------------------------------------------
 //Read/GET
 var getAllBooks = app.MapGet("/api/books", async (BookContext db) => await db.Books.ToListAsync());
@@ -95,9 +109,7 @@ var deleteBookById = app.MapDelete("api/books/{id}", async (BookContext db, int 
 
 });
 
-app.UseRouting();
-app.UseStaticFiles();
-app.MapFallbackToFile("index.html");
+
 app.Run();
 //public interface IImageService
 //{
