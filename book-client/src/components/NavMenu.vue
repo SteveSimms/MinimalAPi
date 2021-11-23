@@ -48,18 +48,20 @@
                     <ul class="navbar-nav flex-grow">
                         <li class="nav-item">
                             <router-link :to="{ name: 'Home' }" class="nav-link text-dark">Home</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'AddBook' }" class="nav-link text-dark">Add Book</router-link>
+                        </li>
 
-                        </li>
-                
                         <!--<li class="nav-item">
-                            <router-link :to="{ name: 'Login' }" class="nav-link text-dark">Login </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'Register' }" class="nav-link text-dark">Register</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'Login' }" class="nav-link text-dark" @click="logout">Logout </router-link>-->
-                            <!--<a href="#" class="nav-link" @click="logout">Logout</a>-->
+        <router-link :to="{ name: 'Login' }" class="nav-link text-dark">Login </router-link>
+    </li>
+    <li class="nav-item">
+        <router-link :to="{ name: 'Register' }" class="nav-link text-dark">Register</router-link>
+    </li>
+    <li class="nav-item">
+        <router-link :to="{ name: 'Login' }" class="nav-link text-dark" @click="logout">Logout </router-link>-->
+                        <!--<a href="#" class="nav-link" @click="logout">Logout</a>-->
                         <!--</li>-->
                     </ul>
 
