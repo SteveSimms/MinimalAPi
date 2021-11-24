@@ -1,5 +1,5 @@
 ﻿<script setup>
-    import { ref, watch } from 'vue'
+    import { ref, reactive, watch } from 'vue'
     /*  import { useStore } from 'vuex'*/
     import axios from 'axios'
 
@@ -9,39 +9,43 @@
     const books = ref([])
 
     //Ship THIS Object to the server
-    let formInputs = ref({
-        title: '',
-        author: '',
-        description: '',
-        imageName: '',
-        imageFile: '',
-        imageUrl: ''
-    })
+    let formInputs = reactive
+        ({
+            title: '',
+            author: '',
+            description: '',
+            imageName: '',
+            imageFile: '',
+            imageUrl: ''
+
+        })
     let imageFile = ref('')
     let imageUrl = ref('')
 
     const log = console.log
 
     const submitBook = async (event) => {
-        await axios.post('http://localhost:5106/api/books', formInputs.value)
+        await axios.post('http://localhost:5106/api/books', formInputs)
             .then((resposne) => {
-                formInputs.value = resposne.data
+                formInputs = resposne.data
                 console.log('From AddBook.vue', resposne.data)
                 return resposne.data
             })
-        formInputs.value.title
-        formInputs.value.author
-        formInputs.value.description
-        formInputs.value.imageName,
-            formInputs.value.imageFile
+        formInputs.title
+        formInputs.author
+        formInputs.description
+        formInputs.imageName
 
-        log('Book submitted', formInputs.value) //Send formInputs.value to the server
+
+        log('Book submitted', formInputs) //Send formInputs.value to the server
     }
 
     const handleImageSelected = (event) => {
         log(event)
 
         if (event.target.files === 0) {
+            imageFile.value = ''
+            imageUrl.value = ''
             return
         }
         //Storing the event.target(ed) file in the imageFile reactive variable
@@ -49,7 +53,14 @@
     }
 
     watch(imageFile, (imageFile) => {
+        if (!(imageFile instanceof File)) {
+            return
+        }
+
+
+
         let fileReader = new FileReader()
+
         fileReader.readAsDataURL(imageFile)
 
         fileReader.addEventListener('load', () => {
@@ -59,17 +70,8 @@
         })
     })
 
-    //const previewImage = () => {
-    //    let input = event.target
-    //    if (input.files && input.files[0]) {
-    //        let reader = new FileReader()
-    //        reader.onload = (e) => {
-    //            this.imageData = e.target.result
-    //        }
-    //        reader.readAsDataURL(input.files[0])
-    //    }
 
-    //}
+
 </script>
 
 
@@ -79,6 +81,7 @@
     <div class="container">
 
         <form @submit.prevent="submitBook" class="file-upload-form" action="/" method="post">
+
             <div class="form-group">
                 <label class="control-label">Title</label>
                 <input v-model="formInputs.title" class="form-control" />
@@ -97,19 +100,18 @@
                 <span class="text-danger"></span>
             </div>
             {{ formInputs.description }}
-
+            <img v-show="imageUrl" :src="imageUrl" alt="Some Picture">
             <div class="form-group">
                 <label class="control-label">Image</label>
-                <input @change="handleImageSelected" type="file" class="form-control" />
+                <input @change="handleImageSelected"
+                       type="file"
+                       accept="image/*"
+                       class="form-control" />
                 <span class="text-danger"></span>
             </div>
 
-            <img :src="imageUrl" alt="Alternate Text" />
-            <!--Upload an image file:
-            <input type="file" @change="previewImage" accept="image/*">-->
-            <!--<div class="image-preview" v-if="imageData.length > 0">
-                <img class="preview" :src="imageData">
-            </div>-->
+
+
 
             <button class="btn btn-primary">Add Book</button>
         </form>
@@ -127,17 +129,6 @@
 
 
 <style>
-    .file-upload-form, .image-preview {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        padding: 20px;
-    }
-
-    img.preview {
-        width: 200px;
-        background-color: white;
-        border: 1px solid #DDD;
-        padding: 5px;
-    }
 </style>
 
 
