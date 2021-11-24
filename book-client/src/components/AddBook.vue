@@ -55,6 +55,7 @@
         fileReader.addEventListener('load', () => {
             imageUrl.value = fileReader.result
             log('script setup ->  imageUrl.value', imageUrl.value)
+
         })
     })
 
@@ -103,7 +104,7 @@
                 <span class="text-danger"></span>
             </div>
 
-            {{ formInputs.imageName }}
+            <img :src="imageUrl" alt="Alternate Text" />
             <!--Upload an image file:
             <input type="file" @change="previewImage" accept="image/*">-->
             <!--<div class="image-preview" v-if="imageData.length > 0">
