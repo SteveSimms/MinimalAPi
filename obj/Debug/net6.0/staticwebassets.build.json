@@ -1,19 +1,11 @@
 {
   "Version": 1,
-  "Hash": "tcl79G3u1scRxQA8TTF0HjUYoVucwvFrWE0zNVdDQ/8=",
+  "Hash": "aWnHR+fJS43W/ljyAcgkI1XNfGJ9Zv06DpuQI7eysTU=",
   "Source": "MinimalAPi",
   "BasePath": "_content/MinimalAPi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "MinimalAPi\\wwwroot",
-      "Source": "MinimalAPi",
-      "ContentRoot": "C:\\Users\\simms\\source\\repos\\MinimalAPi\\wwwroot\\",
-      "BasePath": "_content/MinimalAPi",
-      "Pattern": "**"
-    }
-  ],
+  "DiscoveryPatterns": [],
   "Assets": []
 }

@@ -20,15 +20,14 @@ namespace MinimalAPi
 
         public string Author { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public string ImageName { get; set; } = string.Empty;
 
-        //public string ImageName { get; set; } = string.Empty ;
+        //[NotMapped]
+        //[Display(Name = "Image")]
+        //[DataType(DataType.Upload)]
+        //public IFormFile? ImageFile { get; set; }
 
-        [NotMapped]
-        [Display(Name = "Image")]
-        [DataType(DataType.Upload)]
-        public IFormFile? ImageFile { get; set; }
-
-        public byte[]? ImageData { get; set; }
-        public string? ImageType { get; set; }
+        //public byte[]? ImageData { get; set; }
+        //public string? ImageType { get; set; }
     }
 }
