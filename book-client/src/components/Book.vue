@@ -67,7 +67,7 @@
     </form>
 
     <ul>
-        <li v-for="book in filterBooks"> {{ book.title }} By {{ book.author }} <br />{{ book.description }} <br /> {{ book.imagefile }}  </li>
+        <li v-for="book in filterBooks"> {{ book.title }} By {{ book.author }} <br />{{ book.description }} <br /> {{ book.imageName }}  </li>
     </ul>
 
 
