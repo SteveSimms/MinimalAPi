@@ -21,6 +21,8 @@ namespace MinimalAPi
         public string Author { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
 
+        //public string ImageName { get; set; } = string.Empty ;
+
         [NotMapped]
         [Display(Name = "Image")]
         [DataType(DataType.Upload)]
