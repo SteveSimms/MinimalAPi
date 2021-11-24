@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 //Configure Services
 // establishing DbContext through builder method
+
 builder.Services.AddDbContext<BookContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors();
+
+
 
 var app = builder.Build();
 // Setting CORS POLICY 
@@ -18,7 +21,7 @@ app.UseCors(bldr => bldr
    .AllowAnyMethod()
    .AllowCredentials()
     );
-//Using Routing and Serving SPA as static File and pointiing to index.html as the static (fall back) file to be served
+//Using Routing and Serving SPA as static File and pointiing to index.html as the static (fall back)
 app.UseRouting();
 app.UseStaticFiles();
 app.MapFallbackToFile("index.html");
@@ -27,30 +30,7 @@ app.MapGet("/", () => "Hello Multiverse!");
 var test = app.MapGet("/test", () => "Salam Sidi Asim");
 
 
-//Need to organize config and services need to estab lish cors policy
 
-//Adding below code is blocking the data from reaching the client somehow 
-
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSpa(builder =>
-//    {
-
-//        builder.UseProxyToSpaDevelopmentServer("http://localhost:3000/");
-
-
-
-
-//    });
-
-//}
-
-
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapDefaultControllerRoute();
-//});
-//app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 //------------------------------------------------
 //API (In place of controllers)CRUD OPS BELOW
@@ -111,12 +91,33 @@ var deleteBookById = app.MapDelete("api/books/{id}", async (BookContext db, int 
 
 
 app.Run();
-//public interface IImageService
-//{
-//    public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
+public interface IImageService
+{
+    public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
 
-//    public string ConvertByteArrayToFile(byte[] fileData, string extension);
-//}
+    public string ConvertByteArrayToFile(byte[] fileData, string extension);
+}
+
+public class BasicImageService : IImageService
+{
+    public string ConvertByteArrayToFile(byte[] fileData, string extension)
+    {
+        if (fileData is null) return string.Empty;
+
+        string imagebase64Data = Convert.ToBase64String(fileData);
+        return $"data:{extension};base64,{imagebase64Data}";
+
+    }
+
+    public async Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file)
+    {
+        using MemoryStream memoryStream = new();
+        await file.CopyToAsync(memoryStream);
+        byte[] byteFile = memoryStream.ToArray();
+
+        return byteFile;
+    }
+}
 
 
 //builder.Services.AddAuthentication();

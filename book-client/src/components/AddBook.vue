@@ -12,7 +12,8 @@
     let formInputs = ref({
         title: '',
         author: '',
-        description: ''
+        description: '',
+        imageFile: null
     })
 
     const log = console.log
@@ -27,6 +28,7 @@
         formInputs.value.title
         formInputs.value.author
         formInputs.value.description
+        formInputs.value.imageFile
         log('Book submitted', formInputs.value) //Send formInputs.value to the server
     }
 </script>
@@ -56,6 +58,12 @@
                 <span class="text-danger"></span>
             </div>
             {{ formInputs.description }}
+
+            <div class="form-group">
+                <label  class="control-label">Image</label>
+                <input @:change="submitBook" type="file"  class="form-control" />
+                <span  class="text-danger"></span>
+            </div>
 
             <button class="btn btn-primary">Add Book</button>
         </form>
